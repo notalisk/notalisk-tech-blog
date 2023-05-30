@@ -1,27 +1,25 @@
 <form>
-    <!-- Username -->
-    <div class="mb-3">
-        <label></label>
-        <input>
-        <div></div>
-    </div>
     <!-- Email -->
     <div class="mb-3">
-        <label></label>
-        <input>
-        <div></div>
+        <label for="signup-email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="signup-email">
+    </div>
+    <!-- Username -->
+    <div class="mb-3">
+        <label for="signup-username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="signup-username">
     </div>
     <!-- Password -->
     <div class="mb-3">
-        <label></label>
-        <input>
-        <div></div>
+        <label for="signup-password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="signup-password" aria-describedby="password-describe">
+        <div id="password-describe" class="form-text">Enter a secure password</div>
     </div>
     <!-- Password confirm -->
     <div class="mb-3">
-        <label></label>
-        <input>
-        <div></div>
+        <label for="signup-password-check" class="form-label">Password</label>
+        <input type="password" class="form-control" id="signup-password-check" aria-describedby="password-described-2">
+        <div id="password-describe-2" class="form-text">Confirm your password</div>
     </div>
     <!-- Submit -->
     <button type="submit" class="btn btn-primary">Submit</button>
