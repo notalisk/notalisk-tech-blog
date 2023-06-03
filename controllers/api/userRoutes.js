@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const bcrypt = require('bcrypt');
 
 router.post('/login', async (req, res) => {
     try {
@@ -7,17 +8,22 @@ router.post('/login', async (req, res) => {
             where: { username: req.body.username }
         });
 
+        console.log(userData);
+
         // If no user is found, return error message
         if (!userData) {
-            res.status(400).json('Incorrect password or username');
+            res.status(400).json({ message: 'Incorrect password or username' });
             return;
         };
 
-        const validPassword = await userData.checkPassword(req.body.password);
+        // Check the password! Return the result (true/false)
+        const validPassword = await bcrypt.compare(req.body.password, userData.dataValues.password);
+
+        console.log(validPassword);
 
         // If the password is not valid, return the same error message
-        if (!validPassword) {
-            res.status(400).json('Incorrect password or username');
+        if (validPassword == false) {
+            res.status(400).json({message: 'Incorrect password or username' });
             return;
         };
 
@@ -26,6 +32,7 @@ router.post('/login', async (req, res) => {
             req.session.logged_in = true;
             res.status(200).json({ user: userData, message: 'You are now logged in'});
         });
+
     } catch (err) {
         res.status(400).json(err);
     }

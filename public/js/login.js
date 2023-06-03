@@ -18,7 +18,8 @@
             console.log('Success!');
             document.location.replace('/dashboard');
         } else {
-            alert(response.statusText);
+            var body = await response.json();
+            alert(body.message);
         }
     }
 };
