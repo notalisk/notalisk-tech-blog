@@ -1,0 +1,11 @@
+<div class="">
+    {{#each blogs as |blog|}}
+    <div class="row justify-content-center">
+        <div class="col-8 card m-2 align-self-center">
+            <h2>{{blog.title}}</h2>
+            <p>{{blog.content}}</p>
+            <p>Created by: {{blog.user.username}} on {{blog.date_created}}</p>
+        </div>
+    </div>
+    {{/each}}
+</div>

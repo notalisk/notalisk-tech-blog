@@ -3,7 +3,21 @@ const { Blog, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
+    const blogData = await Blog.findAll({
+        include: [
+            {
+                model: User
+            },
+            {
+                model: Comment
+            }
+        ]
+    });
+
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
+
     res.render('home', {
+        blogs,
         logged_in: req.session.logged_in,
     });
 });
