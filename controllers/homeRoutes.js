@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
 
     res.render('home', {
         blogs,
+        comments: 0,
         logged_in: req.session.logged_in,
     });
 });
@@ -31,9 +32,15 @@ router.get('/signup', async (req, res) => {
 });
 
 router.get('/dashboard', async (req, res) => {
-    res.render('dashboard', {
-        logged_in: req.session.logged_in,
-    });
+    if (!req.session.logged_in) {
+        router.get('/login', async (req, res) => {
+            res.render('login');
+        });
+    } else {
+        res.render('dashboard', {
+            logged_in: req.session.logged_in,
+        });
+    }
 });
 
 module.exports = router;
