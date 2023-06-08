@@ -6,7 +6,7 @@ A blog for keeping up with all your tech buddies! Create posts and comment on ot
 
 ## Usage
 
-Visit the website at the following link: _____Link________
+Visit the website at the following link: https://notalisk-tech-blog.herokuapp.com/
 
 ## Installation
 
@@ -23,3 +23,9 @@ Homepage
 Login
 
 ![image](https://github.com/notalisk/notalisk-tech-blog/assets/81662512/98aa3669-860d-4dec-b965-911c0dfbe7d6)
+
+## Links
+
+Deployed (Heroku): https://notalisk-tech-blog.herokuapp.com/
+
+Repo (GitHub): https://github.com/notalisk/notalisk-tech-blog
